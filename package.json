@@ -1,0 +1,19 @@
+{
+  "name": "zoom_clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "peer": "^0.6.1",
+    "per": "^2.0.2",
+    "socket.io": "^4.5.4",
+    "uuid": "^9.0.0"
+  }
+}
