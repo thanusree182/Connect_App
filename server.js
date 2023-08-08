@@ -9,10 +9,11 @@ const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
+//importing uuid library
 const { v4: uuidV4 } = require('uuid')
 
 app.use('/peerjs', peerServer);
-
+//used to assign the setting name to value
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
@@ -22,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:room', (req, res) => {
-  res.render('room', { roomId: req.params.room })
+  res.render('room', { roomId: req.params.room })   //it is room id parameter
 })
 
 io.on('connection', socket => {
