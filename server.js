@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 // const cors = require('cors')
 // app.use(cors())
+//built-in server
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { ExpressPeerServer } = require('peer');
@@ -15,6 +16,7 @@ app.use('/peerjs', peerServer);
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
+//URL we are going to hit
 app.get('/', (req, res) => {
   res.redirect(`/${uuidV4()}`)
 })
@@ -39,4 +41,5 @@ io.on('connection', socket => {
   })
 })
 
+//server is the local host and port is 3030
 server.listen(3030)
