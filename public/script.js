@@ -1,3 +1,4 @@
+//showing our own video 
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
@@ -9,6 +10,8 @@ let myVideoStream;
 const myVideo = document.createElement('video')
 myVideo.muted = true;
 const peers = {}
+//gives ability to acess audio and video output from chrome
+//video:true means video acess enabled, getUserMedia is promise it is an event in future either resolved or rejected. If we call resolve else rejected
 navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
@@ -62,12 +65,14 @@ function connectToNewUser(userId, stream) {
   peers[userId] = call
 }
 
+
+//we are adding video stream
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
     video.play()
   })
-  videoGrid.append(video)
+  videoGrid.append(video)  //appending video to our grid
 }
 
 
